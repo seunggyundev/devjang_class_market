@@ -140,16 +140,45 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 20.h,),
                 Center(child: Text('계정이 아직 없으신가요?', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: _colorsModel.darkBlack),)),
                 SizedBox(height: 5.h,),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/UserRegiPage');
-                  },
-                  child: Column(
-                    children: [
-                      Text('회원가입', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: _colorsModel.main), textAlign: TextAlign.center,),
-                      Container(height: 1.h, color: _colorsModel.main, width: 80.w,),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/UserRegiPage');
+                      },
+                      child: Column(
+                        children: [
+                          Text('회원가입', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: _colorsModel.main), textAlign: TextAlign.center,),
+                          Container(height: 1.h, color: _colorsModel.main, width: 50.w,),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/FindIdPage');
+                      },
+                      child: Column(
+                        children: [
+                          Text('아이디 찾기', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: _colorsModel.main), textAlign: TextAlign.center,),
+                          Container(height: 1.h, color: _colorsModel.main, width: 60.w,),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 10,),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/FindPasswordPage');
+                      },
+                      child: Column(
+                        children: [
+                          Text('비밀번호 찾기', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500, color: _colorsModel.main), textAlign: TextAlign.center,),
+                          Container(height: 1.h, color: _colorsModel.main, width: 80.w,),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 200.h,),
               ],

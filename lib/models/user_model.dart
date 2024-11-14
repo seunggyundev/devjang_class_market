@@ -8,6 +8,8 @@ class UserClass {
   var detailAddress;
   var account;
   var bank;
+  var email;
+  var pw;
 
   UserClass(
       {
@@ -19,6 +21,8 @@ class UserClass {
         this.address,
         this.bank,
         this.detailAddress,
+        this.email,
+        this.pw,
       });
 
   returnUserClass({required userMap}) {
@@ -31,6 +35,8 @@ class UserClass {
       address: userMap['address'],
       bank: userMap['bank'],
       detailAddress: userMap['detailAddress'],
+      email: userMap['email'],
+      pw: userMap['pw'],
     );
   }
 }

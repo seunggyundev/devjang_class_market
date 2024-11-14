@@ -5,31 +5,36 @@ import '../dialogs/cupertino_dialog.dart';
 import '../providers/registration_provider.dart';
 
 class ValidatePhoneService {
-  verificationPhoneNumber({required context, required String phoneNumber, required RegistrationProvider registrationProvider,}) async {
-        await FirebaseAuth.instance.verifyPhoneNumber(
-              timeout: const Duration(seconds: 60),
-          verificationCompleted: (phoneAuthCredential) {
-          },
-          verificationFailed: (verificationFailed) {
-                ReturnCupertinoDialog().onlyContentOneActionDialog(
-                    context: context,
-                    content: "인증이 실패하였습니다.",
-                    firstText: "확인",
-                );
-            print(verificationFailed.code);
-          },
-          codeSent: (verificationId, resendingToken) async {
-            ReturnCupertinoDialog().onlyContentOneActionDialog(
-                context: context,
-                content: "인증코드를 발송하였습니다.",
-                firstText: "확인",
-            );
+  Future verificationPhoneNumber({required context, required String phoneNumber, required RegistrationProvider registrationProvider,}) async {
+       try {
+         await FirebaseAuth.instance.verifyPhoneNumber(
+           timeout: const Duration(seconds: 60),
+           verificationCompleted: (phoneAuthCredential) {
+           },
+           verificationFailed: (verificationFailed) {
+             ReturnCupertinoDialog().onlyContentOneActionDialog(
+               context: context,
+               content: "인증이 실패하였습니다.",
+               firstText: "확인",
+             );
+             print(verificationFailed.code);
+           },
+           codeSent: (verificationId, resendingToken) async {
+             ReturnCupertinoDialog().onlyContentOneActionDialog(
+               context: context,
+               content: "인증코드를 발송하였습니다.",
+               firstText: "확인",
+             );
 
-            registrationProvider.updateVerificationId(verificationId);
-          },
-          codeAutoRetrievalTimeout: (String verificationId) {},
-          phoneNumber: phoneNumber.replaceRange(0, 0, '+82'),  // '+821012341234' 형태
-        );
+             registrationProvider.updateVerificationId(verificationId);
+           },
+           codeAutoRetrievalTimeout: (String verificationId) {},
+           phoneNumber: phoneNumber.replaceRange(0, 0, '+82'),  // '+821012341234' 형태
+         );
+       } catch(e) {
+         print('error verificationPhoneNumber $e');
+
+       }
   }
 
   Future checkAuthCode({required context, required verificationCode, required RegistrationProvider registrationProvider,required isAlertShow}) async {

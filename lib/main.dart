@@ -1,5 +1,7 @@
 import 'package:devjang_class_market/firebase_options.dart';
 import 'package:devjang_class_market/home.dart';
+import 'package:devjang_class_market/pages/find_id_page.dart';
+import 'package:devjang_class_market/pages/find_password_page.dart';
 import 'package:devjang_class_market/pages/login_page.dart';
 import 'package:devjang_class_market/pages/user_registration_page.dart';
 import 'package:devjang_class_market/providers/login_provider.dart';
@@ -91,6 +93,23 @@ class _MyAppState extends State<MyApp> {
                     ],
                     child: LoginPage());
               },
+              '/FindPasswordPage': (context) {
+                return MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider(create: (BuildContext context) => RegistrationProvider()),
+                      ChangeNotifierProvider(create: (BuildContext context) => ValidateProvider()),
+                    ],
+                    child: FindPasswordPage());
+              },
+              '/FindIdPage': (context) {
+                return MultiProvider(
+                    providers: [
+                      ChangeNotifierProvider(create: (BuildContext context) => RegistrationProvider()),
+                      ChangeNotifierProvider(create: (BuildContext context) => ValidateProvider()),
+                    ],
+                    child: FindIdPage());
+              },
+
             },
           ),
     );
