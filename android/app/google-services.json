@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647026031693",
+    "project_id": "devjangshopping",
+    "storage_bucket": "devjangshopping.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647026031693:android:23a66a2123a72a06147004",
+        "android_client_info": {
+          "package_name": "com.devjangClassMarket.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU6UO1rasYQF-QAU2m9vOH4rdVKi-NQ9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
