@@ -241,9 +241,9 @@ class _FindPasswordPageState extends State<FindPasswordPage> {
                 width: 120.w,
                 height: 42.h,
                 decoration: BoxDecoration(
-                  color: _phoneNumController.text.isEmpty ? _colorsModel.lightGrey.withOpacity(0.3) : _colorsModel.main,
+                  color: _phoneNumController.text.isEmpty ? _colorsModel.loginContanierColor : _colorsModel.main,
                   border: Border.all(color: _phoneNumController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main),
-                  borderRadius: BorderRadius.circular(36),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(child: Text('인증번호', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: _phoneNumController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.white),)),
               ),
@@ -281,9 +281,9 @@ class _FindPasswordPageState extends State<FindPasswordPage> {
                   width: 120.w,
                   height: 42.h,
                   decoration: BoxDecoration(
-                    color: _authCodeController.text.isEmpty ? _colorsModel.lightGrey.withOpacity(0.3) : _colorsModel.main,
+                    color: _authCodeController.text.isEmpty ? _colorsModel.loginContanierColor : _colorsModel.main,
                     border: Border.all(color: _authCodeController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main),
-                    borderRadius: BorderRadius.circular(36),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   child: Center(child: Text('확인', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, color: _authCodeController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.white),)),
                 ),

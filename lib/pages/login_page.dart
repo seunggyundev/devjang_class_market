@@ -261,7 +261,7 @@ class _LoginPageState extends State<LoginPage> {
                 color: _isRed ? _colorsModel.red : _colorsModel.lightGrey,
                 width: 1,
               ),
-              borderRadius: BorderRadius.circular(36),
+              borderRadius: BorderRadius.circular(10),
             ),
             focusedErrorBorder: OutlineInputBorder(
               // borderSide: BorderSide.none,
@@ -269,28 +269,28 @@ class _LoginPageState extends State<LoginPage> {
                 color: _isRed ? _colorsModel.red : _colorsModel.lightGrey,
                 width: 1,
               ),
-              borderRadius: BorderRadius.circular(36),
+              borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: _isRed ? _colorsModel.red : _colorsModel.main,
                 width: 1,
               ),
-              borderRadius: BorderRadius.circular(36),
+              borderRadius: BorderRadius.circular(10),
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: _isRed ? _colorsModel.red : _colorsModel.lightGrey,
                 width: 1,
               ),
-              borderRadius: BorderRadius.circular(36),
+              borderRadius: BorderRadius.circular(10),
             ),
             errorBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color: _isRed ? _colorsModel.red : _colorsModel.lightGrey,
                 width: 1,
               ),
-              borderRadius: BorderRadius.circular(36),
+              borderRadius: BorderRadius.circular(10),
             ),
           ),
         ),

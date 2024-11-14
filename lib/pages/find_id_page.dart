@@ -193,7 +193,7 @@ class _FindIdPageState extends State<FindIdPage> {
                   width: 120.w,
                   height: 42.h,
                   decoration: BoxDecoration(
-                    color: _phoneNumController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main,
+                    color: _phoneNumController.text.isEmpty ? _colorsModel.loginContanierColor : _colorsModel.main,
                     border: Border.all(color: _phoneNumController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main),
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -231,7 +231,7 @@ class _FindIdPageState extends State<FindIdPage> {
                   width: 120.w,
                   height: 42.h,
                   decoration: BoxDecoration(
-                    color: _authCodeController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main,
+                    color: _authCodeController.text.isEmpty ? _colorsModel.loginContanierColor : _colorsModel.main,
                     border: Border.all(color: _authCodeController.text.isEmpty ? _colorsModel.lightGrey : _colorsModel.main),
                     borderRadius: BorderRadius.circular(10),
                   ),
