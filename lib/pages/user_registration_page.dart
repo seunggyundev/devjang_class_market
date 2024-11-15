@@ -1,6 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:devjang_class_market/providers/validate_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -22,9 +21,6 @@ class UserRegiPage extends StatefulWidget {
 
 class _UserRegiPageState extends State<UserRegiPage> {
   ColorsModel _colorsModel = ColorsModel();
-  FocusNode _phoneNumFocus = FocusNode();
-  FocusNode _phoneNumCheckFocus = FocusNode();
-  FocusNode _nickNameCheckFocus = FocusNode();
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
 
