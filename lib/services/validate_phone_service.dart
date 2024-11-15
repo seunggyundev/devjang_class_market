@@ -52,11 +52,8 @@ class ValidatePhoneService {
             if (isAlertShow) {
               if (authCredential.user != null) {
                 registrationProvider.updatePhoneNumCerti(true);
-                ReturnCupertinoDialog().onlyContentOneActionDialog(
-                    context: context,
-                    content: "가입이 완료되었습니다.",
-                    firstText: "확인",
-                );
+                await FirebaseAuth.instance.currentUser?.delete();
+                FirebaseAuth.instance.signOut();
               }
             } else {
 
@@ -66,7 +63,7 @@ class ValidatePhoneService {
             registrationProvider.updatePhoneNumCerti(false);
             ReturnCupertinoDialog().onlyContentOneActionDialog(
                 context: context,
-                content: "가입(휴대폰 인증)에 실패하였습니다.",
+                content: "휴대폰 인증에 실패하였습니다.",
                 firstText: "확인",
             );
             return false;

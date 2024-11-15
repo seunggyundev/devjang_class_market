@@ -174,6 +174,7 @@ class _UserRegiPageState extends State<UserRegiPage> {
                 ),),
                 const SizedBox(height: 10,),
                 textFieldWidget(_passwordConfirmController, '비밀번호를 다시 입력해주세요.'),
+                const SizedBox(height: 10,),
                 GestureDetector(
                   onTap: () async {
                     if (
@@ -215,6 +216,9 @@ class _UserRegiPageState extends State<UserRegiPage> {
                           ReturnCupertinoDialog().onlyContentOneActionDialog(context: context, content: '회원가입 실패\n${authResList.last}', firstText: '확인');
                         }
                       } else {
+                        setState(() {
+                          _loading = false;
+                        });
                         ReturnCupertinoDialog().onlyContentOneActionDialog(context: context, content: '전화번호 인증실패', firstText: '확인');
                       }
                     }
