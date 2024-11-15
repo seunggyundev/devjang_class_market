@@ -1,19 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:devjang_class_market/dialogs/cupertino_dialog.dart';
 import 'package:devjang_class_market/providers/validate_provider.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../models/colors_model.dart';
-import '../providers/registration_provider.dart';
 import '../services/auth_service.dart';
 import '../services/user_services.dart';
 import '../services/validate.dart';
-import '../services/validate_phone_service.dart';
-
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 

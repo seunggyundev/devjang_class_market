@@ -4,19 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 
 class AuthService {
-  getUid() {
-    // uid를 한 곳에서 관리하고
-    // 테스트시에도 효율적이기에 uid는 이 함수를 통해서만 가져온다
-    User? _client = FirebaseAuth.instance.currentUser;
-    var uid = _client?.uid;
-
-    /// for test
-    if (uid == null) {
-      // uid = 'y4qOdfXHx7g8I3lHf5Esbg7btCw2';
-    }
-
-    return uid;
-  }
 
   Future<List> sendResetPasswordEmail(String email) async {
     try {

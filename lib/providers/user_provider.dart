@@ -14,7 +14,6 @@ class UserProvider extends ChangeNotifier {
   get user => _user;
 
   updateUser(UserClass data) {
-    print('update data :${data}');
     _user = data;
     notifyListeners();
   }

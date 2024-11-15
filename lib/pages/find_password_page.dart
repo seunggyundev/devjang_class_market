@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../models/colors_model.dart';
-import '../providers/validate_provider.dart';
 import '../services/auth_service.dart';
 import '../services/validate_phone_service.dart';
 

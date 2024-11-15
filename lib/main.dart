@@ -5,8 +5,6 @@ import 'package:devjang_class_market/pages/find_password_page.dart';
 import 'package:devjang_class_market/pages/login_page.dart';
 import 'package:devjang_class_market/pages/profile_page.dart';
 import 'package:devjang_class_market/pages/user_registration_page.dart';
-import 'package:devjang_class_market/providers/login_provider.dart';
-import 'package:devjang_class_market/providers/product_provider.dart';
 import 'package:devjang_class_market/providers/registration_provider.dart';
 import 'package:devjang_class_market/providers/user_provider.dart';
 import 'package:devjang_class_market/services/validate.dart';
@@ -29,7 +27,6 @@ void main() async {
   runApp(MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (BuildContext context) => UserProvider()),
-        ChangeNotifierProvider(create: (BuildContext context) => ProductProvider()),
       ],
       child: const MyApp()));
 }
@@ -135,7 +132,6 @@ class _MyHomePageState extends State<MyHomePage> {
   String _emailValidate = '';  //이메일 점검을 위한 변수
   Color emailCheckColor = Color(0xff959595);
   ColorsModel _colorsModel = ColorsModel();
-  EmailInputProvider _emailInputProvider = EmailInputProvider();
 
   @override
   Widget build(BuildContext context) {
@@ -170,7 +166,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     setState(() {
                       _emailValidate;
                       emailCheckColor = _colorsModel.main;
-                      _emailInputProvider.updateEmail(value.toString());
                     });
                   }
                 },

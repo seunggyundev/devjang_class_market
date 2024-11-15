@@ -49,18 +49,6 @@ class RegistrationProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  var _category = '분양인';
-  get category => _category;
-
-  updateCategory(text) {
-    if (text == "") {
-      _category = '분양인';
-    } else {
-      _category = text;
-    }
-    notifyListeners();
-  }
-
   // 인증ID
   var _verificationId;
   get verificationId => _verificationId;
@@ -70,30 +58,6 @@ class RegistrationProvider extends ChangeNotifier {
       _verificationId = null;
     } else {
       _verificationId = id;
-    }
-    notifyListeners();
-  }
-
-  var _recommendCode;
-  get recommendCode => _recommendCode;
-
-  updateRecommendCode(text) {
-    if (text == "") {
-      _recommendCode = null;
-    } else {
-      _recommendCode = text;
-    }
-    notifyListeners();
-  }
-
-  var _userType;
-  get userType => _userType;
-
-  updateUserType(text) {
-    if (text == "") {
-      _userType = null;
-    } else {
-      _userType = text;
     }
     notifyListeners();
   }
