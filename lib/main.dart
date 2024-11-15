@@ -3,6 +3,7 @@ import 'package:devjang_class_market/home.dart';
 import 'package:devjang_class_market/pages/find_id_page.dart';
 import 'package:devjang_class_market/pages/find_password_page.dart';
 import 'package:devjang_class_market/pages/login_page.dart';
+import 'package:devjang_class_market/pages/profile_page.dart';
 import 'package:devjang_class_market/pages/user_registration_page.dart';
 import 'package:devjang_class_market/providers/login_provider.dart';
 import 'package:devjang_class_market/providers/product_provider.dart';
@@ -108,6 +109,9 @@ class _MyAppState extends State<MyApp> {
                       ChangeNotifierProvider(create: (BuildContext context) => ValidateProvider()),
                     ],
                     child: FindIdPage());
+              },
+              '/ProfilePage': (context) {
+                return ProfilePage();
               },
 
             },

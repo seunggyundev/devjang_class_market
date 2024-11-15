@@ -37,7 +37,7 @@ class ValidatePhoneService {
        }
   }
 
-  Future checkAuthCode({required context, required verificationCode, required RegistrationProvider registrationProvider,required isAlertShow}) async {
+  Future<bool> checkAuthCode({required context, required verificationCode, required RegistrationProvider registrationProvider,required isAlertShow}) async {
         PhoneAuthCredential phoneAuthCredential =
         PhoneAuthProvider.credential(
                 verificationId: registrationProvider.verificationId, smsCode: '${verificationCode}');

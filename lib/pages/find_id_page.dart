@@ -1,10 +1,13 @@
+import 'package:devjang_class_market/dialogs/cupertino_dialog.dart';
 import 'package:devjang_class_market/models/user_model.dart';
 import 'package:devjang_class_market/providers/registration_provider.dart';
+import 'package:devjang_class_market/services/user_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 import '../models/colors_model.dart';
+import '../services/auth_service.dart';
 import '../services/validate_phone_service.dart';
 
 class FindIdPage extends StatefulWidget {
@@ -24,7 +27,7 @@ class _FindIdPageState extends State<FindIdPage> {
   TextEditingController _householderNameController = TextEditingController();
 
   RegistrationProvider _registrationProvider = RegistrationProvider();
-  UserClass userClass = UserClass();
+  UserClass _userClass = UserClass();
   bool _isResultPage = false;
   bool _loading = false;
 
@@ -111,7 +114,7 @@ class _FindIdPageState extends State<FindIdPage> {
           ),
           body: Stack(
             children: [
-              phoneAuthWidget(screenWidth),
+              _isResultPage ? IdResultPage(userClass: _userClass) : phoneAuthWidget(screenWidth),
               Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
@@ -119,9 +122,13 @@ class _FindIdPageState extends State<FindIdPage> {
                     child: GestureDetector(
                       onTap: () async {
                         if (_isResultPage) {
-
+                          Navigator.pushNamed(context, '/LoginPage');
                         } else {
-
+                          if (_registrationProvider.isPhoneNumCerti) {
+                            setState(() {
+                              _isResultPage = true;
+                            });
+                          }
                         }
                       },
                       child: Container(
@@ -221,11 +228,28 @@ class _FindIdPageState extends State<FindIdPage> {
                     _loading = true;
                   });
 
-                  await ValidatePhoneService().checkAuthCode(context: context, verificationCode: _authCodeController.text.toString(), registrationProvider: _registrationProvider, isAlertShow: true);
+                  bool isClear = await ValidatePhoneService().checkAuthCode(context: context, verificationCode: _authCodeController.text.toString(), registrationProvider: _registrationProvider, isAlertShow: true);
 
-                  setState(() {
-                    _loading = false;
-                  });
+                  if (isClear) {
+                    // 전화번호를 통해 유저정보 가져오기
+                    List resList = await AuthService().findId(phoneNumber: _phoneNumController.text);
+                    setState(() {
+                      _loading = false;
+                    });
+
+                    if (resList.first) {
+                      setState(() {
+                        _userClass = resList.last;
+                      });
+                      ReturnCupertinoDialog().onlyContentOneActionDialog(context: context, content: '인증이 완료되었습니다.', firstText: '확인');
+                    } else {
+                      ReturnCupertinoDialog().onlyContentOneActionDialog(context: context, content: '${resList.last}', firstText: '확인');
+                    }
+                  } else {
+                    setState(() {
+                      _loading = false;
+                    });
+                  }
                 },
                 child: Container(
                   width: 120.w,
@@ -338,7 +362,8 @@ class IdResultPage extends StatelessWidget {
           Container(
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
-              color: _colorsModel.bl,
+              color: _colorsModel.plusLightGrey,
+              border: Border.all(color: _colorsModel.lightGrey),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
@@ -354,7 +379,7 @@ class IdResultPage extends StatelessWidget {
           const SizedBox(height: 40,),
           GestureDetector(
             onTap: () {
-
+              Navigator.pushNamed(context, '/FindPasswordPage');
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
