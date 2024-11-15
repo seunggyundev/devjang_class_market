@@ -1,7 +1,6 @@
 import 'package:devjang_class_market/dialogs/cupertino_dialog.dart';
 import 'package:devjang_class_market/models/user_model.dart';
 import 'package:devjang_class_market/providers/registration_provider.dart';
-import 'package:devjang_class_market/services/user_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

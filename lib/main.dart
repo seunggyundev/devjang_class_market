@@ -7,7 +7,7 @@ import 'package:devjang_class_market/pages/profile_page.dart';
 import 'package:devjang_class_market/pages/user_registration_page.dart';
 import 'package:devjang_class_market/providers/registration_provider.dart';
 import 'package:devjang_class_market/providers/user_provider.dart';
-import 'package:devjang_class_market/services/validate.dart';
+import 'package:devjang_class_market/services/check_validate.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

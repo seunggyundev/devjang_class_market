@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import '../models/colors_model.dart';
 import '../services/auth_service.dart';
 import '../services/user_services.dart';
-import '../services/validate.dart';
+import '../services/check_validate.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 

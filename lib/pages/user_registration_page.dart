@@ -10,7 +10,7 @@ import '../models/colors_model.dart';
 import '../providers/registration_provider.dart';
 import '../services/auth_service.dart';
 import '../services/user_services.dart';
-import '../services/validate.dart';
+import '../services/check_validate.dart';
 import '../services/validate_phone_service.dart';
 
 class UserRegiPage extends StatefulWidget {
