@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:devjang_class_market/services/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,7 +18,6 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   ColorsModel _colorsModel = ColorsModel();
-  FocusNode _nickNameCheckFocus = FocusNode();
   bool _loading = false;
   int _page = 0;
 
@@ -165,12 +165,16 @@ class _ProfilePageState extends State<ProfilePage> {
                       setState(() {
                         _loading = true;
                       });
-                      User? _user = FirebaseAuth.instance.currentUser;
-                      await FirebaseFirestore.instance.collection('userCol').doc('${_user?.uid}').delete();
+                      List resList = await AuthService().removeUser();
                       setState(() {
                         _loading = false;
                       });
-                      Navigator.pushNamed(context, '/');
+
+                      if (resList.first) {
+                        Navigator.pushNamed(context, '/');
+                      } else {
+                        ReturnCupertinoDialog().onlyContentOneActionDialog(context: context, content: '오류\n${resList.last}', firstText: '확인');
+                      }
                     },
                     secText: '아니오',
                     secPressed: () {

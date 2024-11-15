@@ -116,4 +116,15 @@ class AuthService {
       return [false, '${e}'];
     }
   }
+
+  Future<List> removeUser() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      await FirebaseFirestore.instance.collection('userCol').doc('${user?.uid}').delete();
+      return [true];
+    } catch(e) {
+      print("error removeUser : $e");
+      return [false, e.toString()];
+    }
+  }
 }
